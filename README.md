@@ -1,5 +1,5 @@
 ## Exercises from Python Course
-  My exercises from my correnting Python course from Curso em Vídeo (https://cursoemvideo.com/)
+  My exercises from my currently Python course from Curso em Vídeo (https://cursoemvideo.com/)
 
 ### Python3 - Mundo 1 Completed 
   (https://www.cursoemvideo.com/curso/python-3-mundo-1/)<br>
