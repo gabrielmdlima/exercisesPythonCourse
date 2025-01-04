@@ -40,7 +40,7 @@ def get_birth_year():
 
 def yes_or_no(prompt):
   while True:
-    answer = input(prompt).strip().upper()
+    answer = str(input(prompt)).strip().upper()
     if answer in YES or answer in NO:
       return answer
     print('Resposta inválida! Tente "Sim" ou "Não".')
