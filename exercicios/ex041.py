@@ -1,3 +1,61 @@
 from utils.utils import title, activity
 title()
-activity()
+activity('Classificação de atletas')
+
+from datetime import date
+
+CURRENT_YEAR = date.today().year
+YES = ['SIM', 'S', 'YES', 'Y']
+NO = ['NÃO', 'N', 'NO']
+
+def get_age():
+  while True:
+    birth_date = str(input('Digite sua data de nascimento (DD/MM/YYYY): ')).strip()
+    birth_year = int(birth_date.split('/')[-1])
+    if birth_year < CURRENT_YEAR:
+      age = CURRENT_YEAR - birth_year
+      print(f'\nVocê tem {age} anos')
+      return age
+    elif birth_year >= CURRENT_YEAR:
+      print('\nA data de nascimento não pode ser no futuro!')
+    else:
+      print('\nResposta inválida! Tente novamente.')
+
+
+def determine_category(age):
+  if age <= 9:
+    category = 'MIRIM'
+  elif 9 < age <= 14:
+    category = 'INFANTIL'
+  elif 14 < age <= 19:
+    category = 'JUNIOR'
+  elif age == 20:
+    category = 'SÊNIOR'
+  else:
+    category = 'MASTER'
+  return category
+
+
+def yes_or_no(prompt):
+  while True:
+    choice = str(input(prompt)).upper().strip()
+    if choice in YES or choice in NO:
+      return choice
+    else:
+      print('\nResposta inválida! Tente "Sim" ou "Não"')
+
+def classify_athlete():
+  print('='*32)
+  print('CONFEDERAÇÃO NACIONAL DE NATAÇÃO')
+  print('='*32)
+  if yes_or_no('\nVocê gostaria de se matricular na CNN:\n') in NO:
+    print('\nTenha um bom dia!')
+    return
+  print('\nPrimeiro:')
+  
+  age = get_age()
+  category = determine_category(age)
+
+  print(f'Sua categoria é: {category}')
+
+classify_athlete()
