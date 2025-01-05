@@ -70,7 +70,6 @@ def repeat_menu(num):
         return
 
 
-
 def execute_program(num):
   code_label()
 
@@ -86,8 +85,8 @@ def execute_program(num):
 
     repeat_menu(num)
 
-
   return
+
 
 if __name__ == '__main__':
   num = get_number()
