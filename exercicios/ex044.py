@@ -23,7 +23,7 @@ def get_price():
       return
 
 
-def print_menu(OPTIONS, selected):
+def print_menu(selected):
   clear_screen()
   print(f'\033[33mValor do produto:\033[m \033[1mR${price:.2f}\033[m\n')
   print('=== Selecione a condição ===')
@@ -38,17 +38,17 @@ def print_menu(OPTIONS, selected):
 
 def payment_conditions():
   selected = 0
-  print_menu(OPTIONS, selected)
+  print_menu(selected)
   
   while True:
     event = keyboard.read_event(suppress = True)
     if event.event_type == 'down':
       if event.name == 'up':
         selected = (selected - 1) % len(OPTIONS)
-        print_menu(OPTIONS, selected)
+        print_menu(selected)
       elif event.name == 'down':
         selected = (selected + 1) % len(OPTIONS)
-        print_menu(OPTIONS, selected)
+        print_menu(selected)
       elif event.name == 'enter':
         return OPTIONS[selected]
       elif event.name == 'esc':
