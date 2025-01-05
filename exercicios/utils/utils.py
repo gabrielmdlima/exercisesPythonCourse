@@ -1,6 +1,10 @@
+def clear_screen():
+	from os import system, name
+	system('cls' if name == 'nt' else 'clear')
+
+
 def title():
-	from os import system
-	system('cls')
+	clear_screen()
 	import __main__
 	file = (__main__.__file__).split('\\')
 	if 'ex' in file[len(file) - 1]:
