@@ -1,8 +1,9 @@
-from utils.utils import title, activity, clear_screen
+from utils.utils import title, activity
+from time import sleep
 
 import keyboard
 
-OPTIONS = [' Pedra ', ' Papel ', 'Tesoura']  # Constant variable
+OPTIONS = (' Pedra ', ' Papel ', 'Tesoura')  # Constant variable
 
 
 def code_label():  # Used to print the title and activity label whenever the console is cleared
@@ -17,13 +18,12 @@ def computer_choice():  # Set the computer to choose randomly
 
 
 def print_menu(selected):  # Print the menu on the console
-  clear_screen()
   code_label()
 
   print('=== Escolha ===')
   for i, option in enumerate(OPTIONS):
     if i == selected:  # It will print as below if it is the player's choice
-      print(f' >{option:^11}< ')
+      print(f'\033[1;36m  {option:^11}  \033[m')
     else:  # It will print the other menu options below
       print(f'  {option:^11}  ')
   print('='*15)
@@ -62,10 +62,17 @@ def repeat_menu():  # Repeat the menu to let the player choose between play agai
         jokenpo()
         return
       elif event.name == 'esc':
-        clear_screen()
         code_label()
         print('Obrigado por jogar nosso jogo!\n')
         return
+
+
+def message():
+  print('JO.. ', end='')
+  sleep(0.37)
+  print('KEN.. ', end='')
+  sleep(0.37)
+  print('PÔ!\n')
 
 
 def jokenpo():  # Execute the main code
@@ -73,8 +80,8 @@ def jokenpo():  # Execute the main code
   player = player_choice()
 
   if 1 <= player <= 3:  # Only let the scoreboard print if the player chooses an option other than 'EXIT'
-    clear_screen()
     code_label()
+    message()
     print(f'Computador -> {OPTIONS[computer-1]} X {OPTIONS[player-1]} <- Jogador')  # Print the choices in the console
     if player == computer:
       print('TEMOS UM EMPATE!')
