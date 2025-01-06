@@ -11,8 +11,8 @@ average = total / score_amount
 # print(f'A média das notas é {average:.1f}')
 
 if average < 5:
-  print(f'Sua média foi {average} e você está \033[31mREPROVADO!\033[m')
+  print(f'Sua média foi {average:.1f} e você está \033[31mREPROVADO!\033[m')
 elif 5 <= average <= 6.9:
-  print(f'Sua média foi {average} e você está de \033[33mRECUPERAÇÃO!\033[m')
+  print(f'Sua média foi {average:.1f} e você está de \033[33mRECUPERAÇÃO!\033[m')
 else:
-  print(f'Sua média foi {average} e você está \033[32mAPROVADO!\033[m PARABÉNS!')
+  print(f'Sua média foi {average:.1f} e você está \033[32mAPROVADO!\033[m PARABÉNS!')
