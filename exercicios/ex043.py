@@ -16,13 +16,13 @@ def data_input():
 
 
 def bmi_classify(bmi):
-  if bmi <= 18.5:
+  if bmi < 18.5:
     return '\033[33mABAIXO DO PESO\033[m'
-  elif 18.5 < bmi <= 25:
+  elif 18.5 <= bmi < 25:
     return '\033[32mPESO IDEAL\033[m'
-  elif 25 < bmi <= 30:
+  elif 25 <= bmi < 30:
     return '\033[33mSOBREPESO\033[m'
-  elif 30 < bmi <= 40:
+  elif 30 <= bmi < 40:
     return '\033[31mOBESIDADE\033[m'
   else:
     return '\033[31mOBESIDADE MÓRBIDA\033[m'
@@ -40,7 +40,7 @@ def main():
   print('='*33)
   print()
   bmi = bmi_calculator()
-  print(f'\nSeu IMC: \033[1m{bmi:.2f}\033[m')
+  print(f'\nSeu IMC: \033[1m{bmi:.1f}\033[m')
   classification = bmi_classify(bmi)
   print(f'Classificação: {classification}!')
   print('\n\033[33mConsulte um médico para uma avaliação mais detalhada, se necessário.\033[m')
