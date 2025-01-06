@@ -13,6 +13,11 @@ new_price = None
 condition = None
 
 
+def code_label():
+  title()
+  activity('Condições de pagamento')
+
+
 def get_price():
   global price
   while True:
@@ -24,7 +29,7 @@ def get_price():
 
 
 def print_menu(selected):
-  clear_screen()
+  code_label()
   print(f'\033[33mValor do produto:\033[m \033[1mR${price:.2f}\033[m\n')
   print('=== Selecione a condição ===')
   for i, option in enumerate(OPTIONS):
@@ -55,7 +60,7 @@ def payment_conditions():
         return ''
 
 
-def back_menu():
+def return_menu(installments, ins_value):
   print('\nPressione \033[1mesc\033[m para \033[1mVOLTAR\033[m.\nPressione \033[1menter\033[m para \033[1mCONFIRMAR\033[m.')
   while True:
     event = keyboard.read_event(suppress = True)
@@ -64,8 +69,12 @@ def back_menu():
         execute_program()
         return
       elif event.name == 'enter':
-        clear_screen()
-        print(f'O valor final à ser pago na condição "{condition}" selecionada, ficou \033[1mR${new_price:.2f}\033[m')
+        code_label()
+        print(f'O valor final à ser pago na condição "{condition}" selecionada, ficou \033[1mR${new_price:.2f}\033[m', end='')
+        if installments >= 2:
+          print(f' e o valor de cada parcela, em {installments}x: \033[1mR${ins_value:.2f}\033[m')
+        else:
+          print()
         print('\n\033[35mObrigado por usar nosso sistema! Até logo.\033[m')
         return
 
@@ -73,8 +82,11 @@ def back_menu():
 def execute_program():
   global new_price, condition
   condition = payment_conditions()
+  installments = 0
+  ins_value = 0
   if condition in OPTIONS:
-    clear_screen()
+    code_label()
+    print(f'\033[33mValor do produto:\033[m \033[1mR${price:.2f}\033[m\n')
     if condition == OPTIONS[0]:
       print(f'{condition} você tem \033[33m10% de desconto\033[m no valor do produto.')
       new_price = price - (price * 10 / 100)
@@ -86,13 +98,23 @@ def execute_program():
     elif condition == OPTIONS[2]:
       print(f'{condition} o valor do produto permanece o mesmo.')
       new_price = price
-      print(f'Valor com desconto: \033[1mR${new_price:.2f}\033[m')
+      installments = 2
+      ins_value = new_price / installments
+      print(f'Valor do produto: \033[1mR${new_price:.2f}\033[m')
+      print(f'Valor de cada parcela em {installments}x: \033[1mR${ins_value:.2f}\033[m')
     else:
       print(f'{condition} o valor do produto tem um \033[33macréscimo de 20%\033[m de juros.')
       new_price = price + (price * 20 / 100)
-      print(f'Valor com juros: \033[1mR${new_price:.2f}\033[m')
+      while installments < 3:
+        installments = int(input('Quantas parcelas? '))
+        if installments >= 3:
+          ins_value = new_price / installments
+          print(f'Valor com juros: \033[1mR${new_price:.2f}\033[m')
+          print(f'Valor de cada parcela em {installments}x: \033[1mR${ins_value:.2f}\033[m')
+        else:
+          print(f'Para 2x ou menos, selecione a opção "{OPTIONS[2]}"!')
     
-    back_menu()
+    return_menu(installments, ins_value)
   
   return
 
