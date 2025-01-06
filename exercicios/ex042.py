@@ -12,4 +12,17 @@ if s[0] < s[1] + s[2] and s[1] < s[0] + s[2] and s[2] < s[0] + s[1]:
   else:
     print(f'\nOs segmentos de reta acima formam um triângulo ESCALENO!')
 else:
-  print('Os segmementos acima NÃO PODEM formar um triângulo!')
+  print('\nOs segmementos acima NÃO PODEM formar um triângulo!')
+
+# Abaixo, resolução dada no curso:
+
+if s[0] < s[1] + s[2] and s[1] < s[0] + s[2] and s[2] < s[0] + s[1]:
+  print('\nOs segmementos acima PODEM formar um triângulo ', end='')
+  if s[0] == s[1] == s[2]:
+    print(('EQUILÁTERO!'))
+  elif s[0] != s[1] != s[2] != s[0]:
+    print('ESCALENO!')
+  else:
+    print('ISÓCELES!')
+else:
+  print('\nOs segmementos acima NÃO PODEM formar um triângulo!')
