@@ -8,6 +8,7 @@ CURRENT_YEAR = date.today().year
 YES = ['SIM', 'S', 'YES']
 NO = ['NÃO', 'N', 'NO']
 
+
 def get_age():
   while True:
     birth_date = str(input('Digite sua data de nascimento (DD/MM/YYYY): ')).strip()
@@ -17,19 +18,19 @@ def get_age():
       print(f'\nVocê tem {age} anos')
       return age
     elif birth_year > CURRENT_YEAR:
-      print('\nA data de nascimento deve ser antes de 2025. Tente novamente.')
+      print(f'\nA data de nascimento não pode ser maior que {CURRENT_YEAR}. Tente novamente.')
     else:
-      print('\nA data de nascimento não pode ser igual a 2025. Tente novamente.')
+      print(f'\nA data de nascimento não pode ser igual à {CURRENT_YEAR}. Tente novamente.')
 
 
 def determine_category(age):
   if age <= 9:
     return 'MIRIM'
-  elif 9 < age <= 14:
+  elif age <= 14:
     return 'INFANTIL'
-  elif 14 < age <= 19:
+  elif age <= 19:
     return 'JUNIOR'
-  elif age == 20:
+  elif age <= 25:
     return 'SÊNIOR'
   else:
     return 'MASTER'
@@ -42,6 +43,7 @@ def yes_or_no(prompt):
       return choice
     else:
       print('\nResposta inválida! Tente "Sim" ou "Não"')
+
 
 def classify_athlete():
   print('=' * 32)
