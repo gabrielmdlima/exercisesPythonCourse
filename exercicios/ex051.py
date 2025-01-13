@@ -1,3 +1,29 @@
 from utils.utils import title, activity
 title()
-activity()
+activity('Progressão Aritmética')
+
+
+def get_input():
+  list = [0, 0]
+  for i in range(2):
+    list[i] = int(input('Qual o primeiro número: ' if i == 0 else 'Qual a razão da PA: '))
+  
+  return list
+
+
+def print_pa(f, d):
+  print('\nPrimeiros 10 valores da PA: ')
+  for i in range(10):
+    value = f + i * d
+    print(f'{value}' if i == 9 else f'{value}, ',end='')
+
+
+def run():
+  pa = get_input()
+  first_num = pa[0]
+  common_diff = pa[1]
+  print_pa(first_num, common_diff)
+
+
+if __name__ == '__main__':
+  run()
