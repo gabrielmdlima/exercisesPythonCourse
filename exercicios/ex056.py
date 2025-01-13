@@ -2,10 +2,6 @@ from utils.utils import title, activity
 title()
 activity('Análise de cadastros')
 
-nome = [''] *4
-idades = [0] *4
-genero = [''] *4
-
 total = 0
 mais_velho = ''
 maior_idade = 0
@@ -13,15 +9,15 @@ mulheres = 0
 
 for i in range(4):
   print(f'{i+1}ª pessoa:')
-  nome[i] = str(input('Qual o seu nome? ')).strip()
-  idades[i] = int(input('Qual a sua idade? '))
-  genero[i] = str(input('Qual o seu gênero (M/F)? ')).upper().strip()
+  nome = str(input('Qual o seu nome? ')).strip()
+  idade = int(input('Qual a sua idade? '))
+  genero = str(input('Qual o seu gênero (M/F)? ')).upper().strip()
   print()
-  total += idades[i]
-  if genero[i] == 'M' and idades[i] > maior_idade:
-    maior_idade = idades[i]
-    mais_velho = nome[i]
-  elif genero[i] == 'F'and idades[i] < 20:
+  total += idade
+  if genero == 'M' and idade > maior_idade:
+    maior_idade = idade
+    mais_velho = nome
+  elif genero == 'F'and idade < 20:
     mulheres += 1
 
 media = total / 4

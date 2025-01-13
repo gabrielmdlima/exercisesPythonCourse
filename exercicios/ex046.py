@@ -6,14 +6,14 @@ from emoji import emojize
 from time import sleep
 
 def countdown():
-  for c in range(10, 0, -1):
+  for c in range(10, -1, -1):
     print(f'\r{" "*3}', end='')
     print(f'\r{c:2}', end='')
     sleep(1)
 
 def countdown_string():
-  num = ('DEZ', 'NOVE', 'OITO', 'SETE', 'SEIS', 'CINCO', 'QUATRO', 'TRÊS', 'DOIS', 'UM')
-  for i in range(10):
+  num = ('DEZ', 'NOVE', 'OITO', 'SETE', 'SEIS', 'CINCO', 'QUATRO', 'TRÊS', 'DOIS', 'UM', 'ZERO')
+  for i in range(11):
     print(f'\r{" "*7}', end='')
     print(f'\r{num[i]:^33}', end='')
     sleep(1)
