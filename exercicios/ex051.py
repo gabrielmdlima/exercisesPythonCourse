@@ -27,3 +27,15 @@ def run():
 
 if __name__ == '__main__':
   run()
+
+  input('\n\nPressione "Enter"...')
+  title()
+  activity('Correção ex051')
+
+  p = int(input('Primeiro termo: '))
+  r = int(input('Razão da progressão: '))
+  q = (p + (10 - 1) * r) + r
+
+  for i in range(p, q, r):
+    print(f'{i}', end=", ")
+  print('ACABOU')
