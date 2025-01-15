@@ -4,9 +4,15 @@ activity('Progressão Aritmética While')
 
 f = int(input('Qual o primeiro número: '))
 d = int(input('Qual a razão da PA: '))
-c = 0
+t = 10
 
-while c < 10:
-  value = f + c * d
-  print(f'{value}' if c == 9 else f'{value}, ',end='')
-  c += 1
+while t > 0:
+  if t == 10:
+    print(f'{f}', end=', ')
+    f += d
+  elif t == 1:
+    print(f'{f}')
+  else:
+    print(f'{f}', end=', ')
+    f += d
+  t -= 1
