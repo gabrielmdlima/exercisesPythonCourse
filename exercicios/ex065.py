@@ -18,7 +18,7 @@ while sc == 1:
   t += n
   c += 1
   while x == 0:
-    again = str(input('Continuar? [S/N]: ')).strip()
+    again = str(input('Continuar? [S/N]: ')).strip().upper()
     if again == 'S':
       x = 1
     elif again == 'N':
@@ -28,5 +28,5 @@ while sc == 1:
       print('Opção inválida. Tente "S" ou "N".')
 
 average = t / c
-print(f'\nA média dos {c} números digitados é {average:.1f}')
+print(f'\nA média dos {c} números digitados é {average:.2f}')
 print(f'O maior número digitado foi {bigger} e o menor foi {lower}')
