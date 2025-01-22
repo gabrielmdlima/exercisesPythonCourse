@@ -1,6 +1,6 @@
 from utils.utils import title, activity
 title()
-activity('Tabuada (de novo)')
+activity('Tabuada v2')
 
 num = int(input('Digite um número: '))
 
