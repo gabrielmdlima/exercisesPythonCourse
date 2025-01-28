@@ -8,10 +8,19 @@ numbers = ('zero', 'um', 'dois', 'três', 'quatro',
           'quinze', 'dezesseis', 'dezessete', 'dezoito', 
           'dezenove', 'vinte')
 
-user_input = int(input('Digite um número entre 0 e 20: '))
-if not 0 <= user_input <= 20:
+while True:
   while True:
-    user_input = int(input('Tente novamente. Digite um número entre 0 e 20: '))
+    user_input = int(input('Digite um número entre 0 e 20: '))
     if 0 <= user_input <= 20:
       break
-print(f'Você digitou o número {numbers[user_input]}')
+    print('Tente novamente.', end=' ')
+  print(f'Você digitou o número {numbers[user_input]}')
+  while True:
+    stay = str(input('Você quer continuar? [S/N] ')).strip().upper()[0]
+    if stay in 'SN':
+      break
+    else:
+      print('Resposta inválida. Tente novamente!')
+  if stay == 'N':
+    break
+print('\nAté logo!')
