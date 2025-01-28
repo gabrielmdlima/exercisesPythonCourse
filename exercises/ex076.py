@@ -10,6 +10,5 @@ print(f'{"LISTAGEM DE PREÇOS":^40}')
 print('-'*40)
 
 for i in range(0, len(itens), 2):
-  preco = (f'{itens[i+1]:.2f}')
-  print(f'{itens[i]:.<30}R${preco:>7}')
+  print(f'{itens[i]:.<30}R${itens[i+1]:>7.2f}')
 print('-'*40)
