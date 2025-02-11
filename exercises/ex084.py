@@ -6,7 +6,7 @@ pessoas = list()
 dado = list()
 
 while True:
-  dado.append(str(input('Nome: ')))
+  dado.append(str(input('Nome: ')).strip())
   dado.append(float(input('Peso: ')))
   if len(pessoas) < 1:
     maior = menor = dado[1]
@@ -26,12 +26,12 @@ while True:
 
 print('-='*30)
 print(f'Ao todo, você cadastrou {len(pessoas)} pessoas.')
-print(f'O maior peso foi de {maior}Kg. Peso de', end=' ')
+print(f'O maior peso foi de {maior:.1f}Kg. Peso de', end=' ')
 for p in pessoas:
   if p[1] == maior:
     print(f'[{p[0]}]', end=' ')
 print()
-print(f'O menor peso foi de {menor}Kg. Peso de', end=' ')
+print(f'O menor peso foi de {menor:.1f}Kg. Peso de', end=' ')
 for p in pessoas:
   if p[1] == menor:
     print(f'[{p[0]}]', end=' ')
