@@ -11,5 +11,5 @@ print('-='*30)
 
 for linhas in matriz:
   for nums in linhas:
-    print(f'[ {nums} ]', end='')
+    print(f'[{nums:^5}]', end='')
   print()
