@@ -28,12 +28,13 @@ print(f'Nº  NOME         MÉDIA')
 print('-'*26)
 for n, aluno in enumerate(boletim):
   media = (aluno[1][0] + aluno[1][1]) / 2
-  print(f'{n}   {aluno[0]:<10}{media:^12.1f}')
+  print(f'{n}   {aluno[0]:<10}{media:>7.1f}')
 while True:
   print('-'*30)
   select = int(input('Mostrar notas de qual aluno? (999 interrompe): '))
   if select == 999:
+    print('FINALIZANDO...')
     break
-  print(f'Notas de {boletim[select][0]} são {boletim[select][1]}')
-print('FINALIZANDO...')
+  if select < len(boletim):
+    print(f'Notas de {boletim[select][0]} são {boletim[select][1]}')
 print('<<< VOLTE SEMPRE >>>')
