@@ -17,11 +17,10 @@ for linhas in matriz:
   for nums in linhas:
     if nums % 2 == 0:
       pares += nums
-    if nums == linhas[2]:
-      tercol += nums
-    
-    print(f'[ {nums} ]', end='')
+    print(f'[{nums:^5}]', end='')
   print()
+  tercol += linhas[2]
+
 print('-='*30)
 
 print(f'A soma dos valores pares é {pares}.')
