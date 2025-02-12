@@ -16,11 +16,11 @@ sorte = list()
 for j in range(qtd):
   while len(sorte) < 6:
     num = randint(1,60)
-    if not num in sorte:
+    if num not in sorte:
       sorte.append(num)
   sorte.sort()
   jogos.append(sorte[:])
   sorte.clear()
   print(f'Jogo {j+1}: {jogos[j]}')
   sleep(1)
-print(f'-=-=-=-=-= < BOA SORTE > -=-=-=-=-=')
+print(f'-=-=-=-=  < BOA SORTE >  -=-=-=-=')
